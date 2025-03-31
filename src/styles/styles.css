@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --body-background-color: #000000;
+  --calculator-background-color: #f2f2f3;
+  --operators-button-color: #f7f6f6;
+  --number-button-color: #fdfcfc;
+  --font-color: #474746;
+  --calculate-button-color: #90c1e6;
+
+  /* Height and width for calculator */
+  --calculator-height: 34rem;
+  --calculator-widht: 21.5rem;
+
+  /* Height and widht for buttons */
+  --button-width: 3.9rem;
+  --button-height: 2.5rem;
+
+  /* gap */
+  --gap: 0.2rem;
+
+  /* Input field height */
+  --input-field-height: 6rem;
+  --input-field-font-size: 3rem;
+
+  /* number button font size */
+  --number-button-fon-size: 1.3rem;
+
+  /* font weight */
+  --font-weight: 600;
+
+  /* SVG height and widht */
+  --svg-height: 1rem;
+  --svg-widht: 1rem;
+
+  /* Operators font size*/
+  --operators-font-size: 1.4rem;
+
+  /* border radius */
+  --border-radius: 0.5rem;
+}
+
+body {
+  background-color: var(--body-background-color);
+  height: 100vh;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* calculator */
+.calculator {
+  height: var(--calculator-height);
+  width: var(--calculator-widht);
+  min-width: var(--calculator-widht);
+  background-color: var(--calculator-background-color);
+  padding: var(--gap);
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+/* input field */
+.input-field {
+  height: var(--input-field-height);
+  padding: var(--gap);
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.input-field-text {
+  font-size: var(--input-field-font-size);
+  text-wrap-mode: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* history logo */
+#history-logo {
+  height: 1.6rem;
+  width: 1.6rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  cursor: pointer;
+}
+
+/* def-functions */
+.deg-functions button {
+  height: var(--button-height);
+  width: var(--button-width);
+  background: transparent;
+  font-weight: var(--font-weight);
+  border: none;
+}
+
+/* memory functions */
+.memory-functions button {
+  height: var(--button-height);
+  width: var(--button-width);
+  background: transparent;
+  font-weight: var(--font-weight);
+  border: none;
+}
+
+/* trigonometry functions */
+.trigonometry-functions button {
+  height: var(--button-height);
+  background: transparent;
+  border: none;
+  padding: 0 0.5rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+#trigonometry-icon,
+.drop-down-icon,
+#function-icon,
+#backspace-icon {
+  height: var(--svg-height);
+  width: var(--svg-widht);
+}
+
+/* numeric and operator buttons */
+.numeric-operator-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--gap);
+}
+
+.function-button {
+  height: var(--button-height);
+  width: var(--button-width);
+  background-color: var(--operators-button-color);
+  color: var(--font-color);
+  border: none;
+}
+
+.number-button {
+  height: var(--button-height);
+  width: var(--button-width);
+  background-color: var(--number-button-color);
+  color: var(--font-color);
+  font-size: var(--number-button-fon-size);
+  font-weight: 600;
+  border: none;
+}
+
+.operators-font-size {
+  font-size: var(--operators-font-size);
+}
+
+#calculate-button {
+  background-color: var(--calculate-button-color);
+}
+
+.opacity {
+  opacity: 0.3;
+}
+
+/* Common Popup Style */
+.popup {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Trigonometry Popup */
+#trig-popup {
+  background-color: var(--calculator-background-color);
+  color: var(--font-color);
+}
+
+#trig-popup button {
+  background: var(--number-button-color);
+  color: var(--font-color);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+#trig-popup button:hover {
+  background-color: var(--calculate-button-color);
+}
+
+/* Functions Popup */
+#func-popup {
+  background-color: var(--calculator-background-color);
+  left: 8rem;
+}
+
+#func-popup button {
+  background-color: var(--number-button-color);
+  color: black;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+#func-popup button:hover {
+  background: var(--calculate-button-color);
+}
+
+/* Hide Popups by Default */
+.hidden {
+  display: none;
+}
+
+/* History Popup */
+#history-popup {
+  position: absolute;
+  bottom: 0;
+  width: 21.2rem;
+  height: 21rem;
+  background: var(--number-button-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  z-index: 1000;
+}
+
+#history-popup p {
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+#history-list {
+  list-style: none;
+  padding: 0;
+  max-height: 15rem;
+  overflow-y: auto;
+}
+
+#history-list li {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+#clear-history {
+  width: 100%;
+  margin-top: 10px;
+  background: var(--calculate-button-color);
+  color: var(--font-color);
+  font-weight: var(--font-weight);
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+#close-button {
+  height: 1.6rem;
+  width: 1.6rem;
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+}
+
+#close-button img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+#close-button:hover img {
+  height: 1.4rem;
+  width: 1.4rem;
+  transition: ease-in-out;
+}
+/* for every button in calculator ui*/
+button:hover {
+  cursor: pointer;
+  background-color: var(--calculate-button-color);
+  transition: ease-in-out;
+}
