@@ -1,4 +1,4 @@
-import { Expression } from "./expressoin";
+import { Expression } from "./expression";
 import { History } from "./history";
 import { MemoryStorage } from "./calculatorMemoryStorage";
 
