@@ -293,6 +293,18 @@ export class Calculator {
     });
   }
 
+  togglePlusMinus(): void {
+    if (this.currentInput === "0") return;
+
+    if (this.currentInput.startsWith("-")) {
+      this.currentInput = this.currentInput.slice(1); // remove (-)
+    } else {
+      this.currentInput = "-" + this.currentInput; // add (+)
+    }
+
+    this.inputField.textContent = this.currentInput;
+  }
+
   handleButtonClick(e: Event): void {
     const button = (e.target as HTMLButtonElement).closest("button");
     if (!button) return;
@@ -327,15 +339,7 @@ export class Calculator {
         this.toggleSecondary(button);
         break;
       case "plus-minus":
-        if (this.currentInput === "0") return;
-
-        if (this.currentInput.startsWith("-")) {
-          this.currentInput = this.currentInput.slice(1); // remove (-)
-        } else {
-          this.currentInput = "-" + this.currentInput; // add (+)
-        }
-
-        this.inputField.textContent = this.currentInput;
+        this.togglePlusMinus();
         break;
       default:
         if (this.resultDisplayed && !/[\+\-\*\/]/.test(value)) {
