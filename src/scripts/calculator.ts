@@ -180,7 +180,7 @@ export class Calculator {
     this.inputField.textContent = this.currentInput;
   }
 
-  toggleDegRed(button: HTMLButtonElement) {
+  toggleDeg(button: HTMLButtonElement) {
     const isDeg = this.isDegreeMode;
     button.value = isDeg ? "radian" : "degree";
     button.textContent = isDeg ? "RAD" : "DEG";
@@ -188,7 +188,7 @@ export class Calculator {
     this.isDegreeMode = !isDeg;
   }
 
-  toggleSecondPrimary(button: HTMLButtonElement) {
+  toggleSecondary(button: HTMLButtonElement) {
     const isSecondMode = this.isSecondPrimary;
     button.value = isSecondMode ? "second-function" : "primary-function";
     button.ariaLabel = isSecondMode ? "Second Functions" : "Primary Functions";
@@ -320,11 +320,11 @@ export class Calculator {
         break;
       case "degree":
       case "radian":
-        this.toggleDegRed(button);
+        this.toggleDeg(button);
         break;
       case "second-function":
       case "primary-function":
-        this.toggleSecondPrimary(button);
+        this.toggleSecondary(button);
         break;
       case "plus-minus":
         if (this.currentInput === "0") return;
