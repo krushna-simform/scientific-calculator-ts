@@ -16,7 +16,7 @@ class History {
 
   private appendHistory(): void {
     try {
-      const storedHistory: HistoryEntry[] = JSON.parse(
+      const storedHistory: Array<HistoryEntry> = JSON.parse(
         localStorage.getItem(this.key) || "[]"
       );
       if (Array.isArray(storedHistory)) {
@@ -39,7 +39,7 @@ class History {
     localStorage.setItem(this.key, JSON.stringify(this.history));
   }
 
-  getHistory(): string[] {
+  getHistory(): Array<string> {
     return this.history.map((entry) => `${entry.question} = ${entry.answer}`);
   }
 
