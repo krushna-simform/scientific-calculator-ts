@@ -1,0 +1,33 @@
+{
+  "name": "calc-typescript",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "parcel serve ./src/index.html --port 5000",
+    "type-check": "tsc -b --noEmit",
+    "build": "npm run type-check && parcel build ./src/index.html --no-autoinstall --no-optimize",
+    "format": "prettier src --write",
+    "clean": "rm -rf dist .parcel-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krushna-simform/scientific-calculator-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "calculations",
+    "calculator"
+  ],
+  "author": "krushna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krushna-simform/scientific-calculator-ts/issues"
+  },
+  "homepage": "https://github.com/krushna-simform/scientific-calculator-ts#readme",
+  "description": "This is a scientific calculator implemented using HTML, CSS, and typescript. It performs all basic calculations and trigonometric functions.",
+  "devDependencies": {
+    "parcel": "^2.14.4",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  }
+}

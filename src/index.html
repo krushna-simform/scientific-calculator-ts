@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Scientific Calculator - A scientific calculator is a specialized website for performing complex mathematical, statistical, and scientific calculations."
+    />
+    <meta
+      name="keywords"
+      content="Scientific, Calculator, Mathematical, Statistical"
+    />
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Scientific Calculator" />
+    <meta
+      property="og:description"
+      content="Scientific Calculator - A scientific calculator is a specialized website for performing complex mathematical, statistical, and scientific calculations."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="./assets/images/calculator-cover-page.png"
+    />
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Scientific Calculator" />
+    <meta
+      name="twitter:description"
+      content="Scientific Calculator - A scientific calculator is a specialized website for performing complex mathematical, statistical, and scientific calculations."
+    />
+    <meta
+      name="twitter:image"
+      content="./assets/images/calculator-cover-page.png"
+    />
+
+    <link rel="icon" href="./assets/icons/calculator-icon.svg" />
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <title>Scientific Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <!-- history logo -->
+      <img
+        src="./assets/icons/history-logo.svg"
+        alt="history icon"
+        id="history-logo"
+        tabindex="0"
+      />
+
+      <!-- input field -->
+      <div class="input-field">
+        <span class="input-field-text" tabindex="0">0</span>
+      </div>
+
+      <!-- History Popup -->
+      <div id="history-popup" class="popup hidden">
+        <p>Calculation History</p>
+        <button id="close-button" aria-label="close history popup">
+          <img src="./assets/icons/close.svg" alt="Close icon" />
+        </button>
+        <ul id="history-list"></ul>
+        <button id="clear-history" aria-label="clear history">
+          Clear History
+        </button>
+      </div>
+
+      <!-- degree functions -->
+      <div class="deg-functions">
+        <button aria-label="Degree mode" value="degree">
+          <span>DEG</span>
+        </button>
+
+        <button aria-label="Float and Engineering notation" value="f-e">
+          <span>F-E</span>
+        </button>
+      </div>
+
+      <!-- memory functions -->
+      <div class="memory-functions">
+        <button aria-label="Memory Clear" value="memory-clear">
+          <span class="opacity">MC</span>
+        </button>
+
+        <button aria-label="Memory Recall" value="memory-recall">
+          <span class="opacity">MR</span>
+        </button>
+
+        <button aria-label="Memory Add" value="memory-add">
+          <span>M+</span>
+        </button>
+
+        <button aria-label="Memory Subtract" value="memory-subtract">
+          <span>M-</span>
+        </button>
+
+        <button aria-label="Memory Store" value="memory-store">
+          <span>MS</span>
+        </button>
+      </div>
+
+      <!-- trigonometry functions -->
+      <div class="trigonometry-functions flex">
+        <button
+          class="flex"
+          aria-label="Trigonometry Functions"
+          value="trigonometry"
+        >
+          <img
+            src="./assets/icons/trigonometry.svg"
+            alt="Trigonometry icon"
+            id="trigonometry-icon"
+          />
+          <span>Trigonometry</span>
+          <img
+            src="./assets/icons/drop-down.svg"
+            alt="Dropdown icon"
+            class="drop-down-icon"
+          />
+        </button>
+
+        <button class="flex" aria-label="General Functions" value="functions">
+          <img
+            src="./assets/icons/functions.svg"
+            alt="Functions icon"
+            id="function-icon"
+          />
+          <span>Functions</span>
+          <img
+            src="./assets/icons/drop-down.svg"
+            alt="Dropdown icon"
+            class="drop-down-icon"
+          />
+        </button>
+      </div>
+
+      <!-- Trigonometry Popup -->
+      <div id="trig-popup" class="popup hidden">
+        <button value="sin">sin</button>
+        <button value="cos">cos</button>
+        <button value="tan">tan</button>
+      </div>
+
+      <!-- Functions Popup -->
+      <div id="func-popup" class="popup hidden">
+        <button value="floor">floor</button>
+        <button value="ceil">ceil</button>
+        <button value="round">round</button>
+      </div>
+
+      <!-- numeric and operator buttons -->
+      <div class="numeric-operator-buttons">
+        <button
+          class="function-button"
+          aria-label="Second Functions"
+          value="second-function"
+        >
+          2<sup>nd</sup>
+        </button>
+
+        <button class="function-button" aria-label="PI" value="π">π</button>
+
+        <button class="function-button" aria-label="Euler's Number" value="e">
+          e
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Clear all"
+          value="clear-all"
+        >
+          C
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Backspace"
+          value="backspace"
+        >
+          <img
+            src="./assets/icons/backspace.svg"
+            alt="Backspace icon"
+            id="backspace-icon"
+          />
+        </button>
+
+        <button class="function-button" aria-label="Square of x" value="^2">
+          <i>x</i><sup>2</sup>
+        </button>
+
+        <button class="function-button" aria-label="Reciprocal of x" value="1/">
+          1/<i>x</i>
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Absolute value of x"
+          value="abs("
+        >
+          |<i> x </i>|
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Exponential function"
+          value="exp("
+        >
+          exp
+        </button>
+
+        <button class="function-button" aria-label="Modulo operation" value="%">
+          mod
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Two squareroot of x"
+          value="sqrt("
+        >
+          2√<i>x</i>
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Opening parenthesis"
+          value="&#40;"
+        >
+          &#40;
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Closing parenthesis"
+          value="&#41;"
+        >
+          &#41;
+        </button>
+
+        <button class="function-button" aria-label="Factorial" value="!">
+          <i>n</i>&#33;
+        </button>
+
+        <button
+          class="function-button operators-font-size"
+          aria-label="Division"
+          value="/"
+        >
+          &#247;
+        </button>
+
+        <button class="function-button" aria-label="Power of x" value="^">
+          <i>x</i><sup>y</sup>
+        </button>
+
+        <button class="number-button" aria-label="Number 7" value="7">7</button>
+
+        <button class="number-button" aria-label="Number 8" value="8">8</button>
+
+        <button class="number-button" aria-label="Number 9" value="9">9</button>
+
+        <button
+          class="function-button operators-font-size"
+          aria-label="Multiplication"
+          value="*"
+        >
+          &#215;
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="10 to the power of x"
+          value="10^"
+        >
+          10<sup><i>x</i></sup>
+        </button>
+
+        <button class="number-button" aria-label="Number 4" value="4">4</button>
+
+        <button class="number-button" aria-label="Number 5" value="5">5</button>
+
+        <button class="number-button" aria-label="Number 6" value="6">6</button>
+
+        <button
+          class="function-button operators-font-size"
+          aria-label="Minus"
+          value="&#45;"
+        >
+          &#45;
+        </button>
+
+        <button class="function-button" aria-label="Logarithm" value="log(">
+          log
+        </button>
+
+        <button class="number-button" aria-label="Number 1" value="1">1</button>
+
+        <button class="number-button" aria-label="Number 2" value="2">2</button>
+
+        <button class="number-button" aria-label="Number 3" value="3">3</button>
+
+        <button
+          class="function-button operators-font-size"
+          aria-label="Plus"
+          value="&#43;"
+        >
+          &#43;
+        </button>
+
+        <button
+          class="function-button"
+          aria-label="Natural Logarithm"
+          value="ln("
+        >
+          ln
+        </button>
+
+        <button
+          class="number-button"
+          aria-label="Plus-Minus"
+          value="plus-minus"
+        >
+          &#43;/&#45;
+        </button>
+
+        <button class="number-button" aria-label="Number 0" value="0">0</button>
+
+        <button class="number-button" aria-label="Decimal point" value="&#46;">
+          &#46;
+        </button>
+
+        <button
+          class="function-button operators-font-size"
+          id="calculate-button"
+          aria-label="Calculate"
+          value="calculate"
+        >
+          &#61;
+        </button>
+      </div>
+    </div>
+    <script src="scripts/index.ts" type="module"></script>
+  </body>
+</html>
